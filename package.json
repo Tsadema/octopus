@@ -1,0 +1,24 @@
+{
+  "name": "octopus",
+  "version": "1.0.0",
+  "description": "hey look it says gullible on the ceiling",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tsadema/octopus.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tsadema/octopus/issues"
+  },
+  "homepage": "https://github.com/Tsadema/octopus#readme",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "discord.js": "^12.5.3",
+    "discord.js-commando": "^0.12.3"
+  }
+}
