@@ -21,6 +21,6 @@ module.exports = class SayCommand extends Command {
     }
 
     run(message, { text }) {
-        return message.reply(text);
+        return message.say(text);
     }
 };
