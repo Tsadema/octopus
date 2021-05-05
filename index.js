@@ -10,8 +10,7 @@ const client = new CommandoClient({
 client.registry
     .registerDefaultTypes()
     .registerGroups([
-        ['general', 'General'],
-        ['fun', 'Fun'],
+        ['please help me i\'m trapped in a simulation', 'Grand Theft Auto VI is a thing here'],
     ])
     .registerDefaultGroups()
     .registerDefaultCommands()
