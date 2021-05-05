@@ -22,7 +22,7 @@ client.once('ready', () => {
     console.log(chalk.blueBright(`\nLogged in as ${client.user.tag}\n`))
 });
 
-client.on('error', chalk.redBright(console.error));
+client.on('error', console.error);
 
 
 
