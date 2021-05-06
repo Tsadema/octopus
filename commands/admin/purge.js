@@ -1,45 +1,42 @@
-const {
-	Command
-} = require('discord.js-commando');
+const commando = require('discord.js-commando');
 
-module.exports = class SayCommand extends Command {
-	constructor(client) {
-		super(client, {
-			name: 'purge',
-			group: 'admin',
-			memberName: 'purge',
-			description: 'Purges the amount of messages you ask for.',
-			examples: ['purge 4'],
-            ownerOnly: true,
-			args: [{
-				key: 'text',
-				prompt: 'How many messages would you like to purge?',
-				type: 'string'
-			}]
-		});
-	}
+module.exports = class PurgeCommand extends commando.Command {
+    constructor(client) {
+        super(client, {
+            name: 'purge',
+            group: 'admin',
+            memberName: 'purge',
+            description: 'if message = stupid: message.delete()',
+            examples: ['purge 5'],
 
-	async run(msg, args) {
-				let messagecount = args.text;
-				if (messagecount <= 2) return msg.reply('You can not delete less than 2 messages!')
-				if (messagecount > 10000) {
-					return msg.reply('You can not delete more than 10000 messages at a time!')
-				}
-				if (messagecount > 100) {
-					messagecount = messagecount / 100;
-					for (var i = 0; i < messagecount; i++) {
-						msg.channel.fetchMessages({
-							limit: 100
-						}).then(messages => msg.channel.bulkDelete(messages))
-					}
-					msg.reply(`Succesfully deleted ${messagecount * 100} messages!`);
-				} else {
-					msg.delete();
-					msg.channel.fetchMessages({
-						limit: messagecount
-					}).then(messages => msg.channel.bulkDelete(messages))
-					msg.reply(`Succesfully deleted ${messagecount} messages!`);
-				}
-			}
+            args: [
+                {
+                    key: 'numToPurge',
+                    label: 'number',
+                    prompt: 'Please input a number ( > 0) of messages to be deleted.',
+                    type: 'integer'
+                }
+            ]
+        });
+    }
+
+    run(msg, { numToPurge }) {
+        let channel = msg.channel;
+
+        // fail if number of messages to purge is invalid
+        if (numToPurge <= 0) {
+            return msg.reply('Purge number must be greater than 0');
+        }
+
+        // channel type must be text for .bulkDelete to be available
+        else if (channel.type === 'text') {
+            return channel.fetchMessages({limit: numToPurge})
+                .then(msgs => channel.bulkDelete(msgs))
+                .then(msgs => msg.reply(`Purge deleted ${msgs.size} message(s)`))
+                .catch(console.error);
+        }
+        else {
+            return msg.reply('Purge command only available in Text Channels');
+        }
+    }
 };
-		return

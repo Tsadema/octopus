@@ -12,7 +12,7 @@ client.registry
     .registerGroups([
         ['please help i\'m stuck in a simulation', 'Grand Theft Auto VI is a thing here'],
         ['admin', 't h e   d a n g e r   z o n e'],
-        ['wiki', 'become SMORT']
+        ['wiki', 'become SMORT'],
     ])
     .registerDefaultGroups()
     .registerDefaultCommands()
