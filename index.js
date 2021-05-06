@@ -10,7 +10,7 @@ const client = new CommandoClient({
 client.registry
     .registerDefaultTypes()
     .registerGroups([
-        ['please help me i\'m trapped in a simulation', 'Grand Theft Auto VI is a thing here'],
+        ['please help i\'m stuck in a simulation', 'Grand Theft Auto VI is a thing here'],
     ])
     .registerDefaultGroups()
     .registerDefaultCommands()
@@ -18,6 +18,14 @@ client.registry
 
 client.once('ready', () => {
     console.log(chalk.blueBright(`\nLogged in as ${client.user.tag}\n`))
+    client.user.setPresence({
+        status: 'idle',
+        activity: {
+            name: 'with 7 cups of triple-shot espresso',
+            type: 'STREAMING',
+            url: 'https://www.twitch.tv/notacire'
+        },
+    })
 });
 
 client.on('error', console.error);
