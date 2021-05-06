@@ -20,23 +20,23 @@ module.exports = class PurgeCommand extends commando.Command {
         });
     }
 
-    run(msg, { numToPurge }) {
-        let channel = msg.channel;
+    run(message, { numToPurge }) {
+        let channel = message.channel;
 
         // fail if number of messages to purge is invalid
         if (numToPurge <= 0) {
-            return msg.reply('Purge number must be greater than 0');
+            return message.reply('Purge number must be greater than 0');
         }
 
         // channel type must be text for .bulkDelete to be available
         else if (channel.type === 'text') {
-            return channel.fetchMessages({limit: numToPurge})
-                .then(msgs => channel.bulkDelete(msgs))
-                .then(msgs => msg.reply(`Purge deleted ${msgs.size} message(s)`))
+            return channel.messages.fetch({limit: numToPurge})
+                .then(message => channel.bulkDelete(msgs))
+                .then(messages => message.reply(`Purge deleted ${messages.size} message(s)`))
                 .catch(console.error);
         }
         else {
-            return msg.reply('Purge command only available in Text Channels');
+            return messsage.reply('Purge command only available in Text Channels');
         }
     }
 };
