@@ -12,7 +12,7 @@ module.exports = class SayCommand extends Command {
             args: [
                 {
                     key: 'text',
-                    prompt: 'dafuq you want me to say',
+                    prompt: 't e x t',
                     type: 'string',
                     validate: text => text.length < 201,
                 },
