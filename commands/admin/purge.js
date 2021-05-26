@@ -13,7 +13,7 @@ module.exports = class PurgeCommand extends commando.Command {
                 {
                     key: 'numToPurge',
                     label: 'number',
-                    prompt: 'Please input a number ( > 0) of messages to be deleted.',
+                    prompt: 'Please input a number (greater than 0, less than 201) of messages to be deleted.',
                     type: 'integer'
                 }
             ]
@@ -24,16 +24,15 @@ module.exports = class PurgeCommand extends commando.Command {
         let channel = message.channel;
 
         // fail if number of messages to purge is invalid
-        if (numToPurge <= 0) {
-            return message.reply('Purge number must be greater than 0');
+        if (numToPurge <= 0 || numToPurge > 200) {
+            return message.reply('Purge number must be greater than 0 and less than 201');
         }
 
         // channel type must be text for .bulkDelete to be available
         else if (channel.type === 'text') {
             return channel.messages.fetch({limit: numToPurge})
-                .then(message => channel.bulkDelete(msgs))
-                .then(messages => message.reply(`Purge deleted ${messages.size} message(s)`))
-                .catch(console.error);
+            .then(message => channel.bulkDelete(numToPurge))
+            .then(error => console.error())
         }
         else {
             return messsage.reply('Purge command only available in Text Channels');

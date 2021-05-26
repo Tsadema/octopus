@@ -13,7 +13,7 @@ global.ud = require('urban-dictionary');
 const { CommandoClient } = require('discord.js-commando');
 const path = require('path');
 const chalk = require('chalk');
-const { token, prefix } = require('./data/config.json');
+const { token, prefix, statusList } = require('./data/config.json');
 const client = new CommandoClient({
     commandPrefix: prefix,
     owner: '414599338908450817',
@@ -27,20 +27,35 @@ client.registry
         ['wiki', 'Wiki Commands'],
     ])
     .registerDefaultGroups()
-    .registerDefaultCommands()
+    .registerDefaultCommands({
+        help: false,
+        unknownCommand: false,
+    })
     .registerCommandsIn(path.join(__dirname, 'commands'));
+
+const activities_list = [
+    "for simps", 
+    "anime",
+    "#general", 
+    "humans stray further from god",
+    ];
+    
+client.on('ready', () => {
+    setInterval(() => {
+        const status = Math.floor(Math.random() * (statusList.length - 1) + 1);
+        client.user.setPresence({
+            status: 'online',
+            activity: {
+                name: statusList[status],
+                type: 'WATCHING'
+            },
+        });
+    }, 30000);
+});
 
 client.once('ready', () => {
     console.log(chalk.blueBright(`\nLogged in as ${client.user.tag}`))
     console.log(chalk.cyanBright(`Prefix: ${prefix}`))
-    client.user.setPresence({
-        status: 'idle',
-        activity: {
-            name: 'with robots',
-            type: 'STREAMING',
-            url: 'https://www.twitch.tv/notacire'
-        },
-    })
 });
 
 client.on('error', console.error);
