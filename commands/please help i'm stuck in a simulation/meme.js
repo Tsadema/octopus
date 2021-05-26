@@ -7,7 +7,7 @@ module.exports = class MemeCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'meme',
-            group: 'please help i\'m stuck in a simulation',
+            group: 'unfun commands',
             memberName: 'meme',
             description: 'ayo kid want some memes',
         })

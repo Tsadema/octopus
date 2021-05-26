@@ -4,7 +4,7 @@ module.exports = class SayCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'invite',
-			group: 'please help i\'m stuck in a simulation',
+			group: 'unfun commands',
 			memberName: 'invite',
 			description: 'Displays bot invite link.',
 			examples: ['invite'],

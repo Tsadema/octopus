@@ -5,7 +5,7 @@ module.exports = class SmugCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'smug',
-			group: 'please help i\'m stuck in a simulation',
+			group: 'unfun commands',
 			memberName: 'smug',
 			description: 'Sends a smug face from an online database. Spooky!'
 		});

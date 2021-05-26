@@ -36,7 +36,7 @@ module.exports = class WikiCommand extends Command {
 					.setTitle(`:book: ${body.query.search[0].title}`)
 					.setAuthor('Wikipedia', 'http://i.imgur.com/JI3HL2j.png')
 					.setDescription(`${snippet}.. [Read more](${finalurl})`)
-					.setColor(0xf4b342)
+					.setColor('9B59B6')
 					.addField('Word Count', `${body.query.search[0].wordcount}`, true)
 					.setFooter(`Wikipedia article pulled on ${new Date()}`)
 				msg.channel.send({

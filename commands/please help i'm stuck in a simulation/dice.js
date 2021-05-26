@@ -5,7 +5,7 @@ module.exports = class DiceCommand extends Command {
         super(client, {
             name: 'dice',
             aliases: ['roll'],
-            group: 'please help i\'m stuck in a simulation',
+            group: 'unfun commands',
             memberName: 'dice',
             description: 'roll a standard 1-6 dice',
             clientPermissions: ['SEND_MESSAGES'],

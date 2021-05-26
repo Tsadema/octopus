@@ -5,7 +5,7 @@ module.exports = class SayCommand extends Command {
         super(client, {
             name: 'say',
             aliases: ['parrot', 'copy'],
-            group: 'please help i\'m stuck in a simulation',
+            group: 'unfun commands',
             memberName: 'say',
             description: 'what u want me 2 say?',
             clientPermissions: ['SEND_MESSAGES'],

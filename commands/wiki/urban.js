@@ -33,7 +33,7 @@ module.exports = class SayCommand extends Command {
 					.setAuthor('Urban Dictionary', 'http://i.imgur.com/qv7WT83.png')
 					.setDescription(`${entries[0].definition} [Read more](${entries[0].permalink})`)
 					.addField('Example', `${entries[0].example}`)
-					.setColor(0xf4b342)
+					.setColor('9B59B6')
 					.setFooter(`Urban Dictionary post pulled on ${new Date()}`)
 				msg.channel.send({
 					embed

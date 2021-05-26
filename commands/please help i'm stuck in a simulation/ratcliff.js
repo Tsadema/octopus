@@ -5,7 +5,7 @@ module.exports = class RatcliffCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'ratcliff',
-            group: 'please help i\'m stuck in a simulation',
+            group: 'unfun commands',
             memberName: 'ratcliff',
             description: 'i dont know why'
         });
