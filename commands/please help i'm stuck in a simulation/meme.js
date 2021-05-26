@@ -36,7 +36,7 @@ module.exports = class MemeCommand extends Command {
                 if (index.post_hint !== 'image') {
                     return;
                 }
-                console.log(image);
+                console.log(`${message.author.tag} used 8!meme (${image})\n`);
                 const imageembed = new Discord.MessageEmbed()
                     .setTitle(subRedditName)
                     .setImage(image)

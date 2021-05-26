@@ -7,6 +7,7 @@ module.exports = class EightballCommand extends Command {
 			name: 'eightball',
 			group: 'unfun commands',
 			memberName: 'eightball',
+			aliases: ['ball', '8ball'],
 			description: 'Ask a question to the MAGIC eightball',
 			args: [{
 				key: 'text',
@@ -21,13 +22,13 @@ module.exports = class EightballCommand extends Command {
 		messages[1] = "Not today";
 		messages[2] = "It is decidedly so";
 		messages[3] = "Without a doubt";
-		messages[4] = "Yes definitely";
+		messages[4] = "Yes, definitely";
 		messages[5] = "You may rely on it";
-		messages[6] = "As I see it yes";
+		messages[6] = "As I see it, yes";
 		messages[7] = "Most likely";
 		messages[8] = "Outlook good";
 		messages[10] = "Signs point to yes";
-		messages[11] = "Reply hazy try again";
+		messages[11] = "Reply hazy, please try again";
 		messages[12] = "Ask again later";
 		messages[13] = "Better not tell you now";
 		messages[14] = "Cannot predict now";
@@ -37,7 +38,7 @@ module.exports = class EightballCommand extends Command {
 		messages[18] = "My sources say no";
 		messages[19] = "Outlook not so good";
 		messages[20] = "Very doubtful";
-		let randomnumber = Math.floor(Math.random() * 21);
+		let randomnumber = Math.floor(Math.random() * 20);
 		return msg.reply(messages[randomnumber]);
 	}
 }

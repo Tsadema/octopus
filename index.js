@@ -50,14 +50,11 @@ client.on('ready', () => {
                 type: 'WATCHING'
             },
         });
+        console.log(`Status set to '${statusList[status]}'\n`);
     }, 30000);
-});
-
-client.once('ready', () => {
     console.log(chalk.blueBright(`\nLogged in as ${client.user.tag}`))
-    console.log(chalk.cyanBright(`Prefix: ${prefix}`))
+    console.log(chalk.cyanBright(`Prefix: ${prefix}\n`))
 });
 
 client.on('error', console.error);
-
 client.login(token);
