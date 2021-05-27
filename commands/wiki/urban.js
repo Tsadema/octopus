@@ -35,9 +35,7 @@ module.exports = class SayCommand extends Command {
 					.addField('Example', `${entries[0].example}`)
 					.setColor('9B59B6')
 					.setFooter(`Urban Dictionary post pulled on ${new Date()}`)
-				msg.channel.send({
-					embed
-				});
+				msg.channel.send({embed});
 			}
 		})
 	}
